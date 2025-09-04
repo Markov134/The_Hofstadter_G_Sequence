@@ -22,25 +22,72 @@ TEST_CASE( "Naive Recursion Method" ) {
     };
 
     BENCHMARK( "Test Four" ) {
-        Gsequence(10);
+        Gsequence(3);
+    };
+
+    BENCHMARK( "Test Five" ) {
+        Gsequence(4);
+    };
+
+    BENCHMARK( "Test Six" ) {
+        Gsequence(5);
+    };
+
+    BENCHMARK( "Test Seven" ) {
+        Gsequence(6);
+    };
+
+    BENCHMARK( "Test Eight" ) {
+        Gsequence(7);
+    };
+
+    BENCHMARK( "Test Nine" ) {
+        Gsequence(8);
+    };
+
+    BENCHMARK( "Test Ten" ) {
+        Gsequence(9);
     };
 }
-int n;
-std::vector<int> cache(n + 1, -1);
+
 TEST_CASE( "Improved Recursion Method" ) {
     BENCHMARK( "Test One" ) {
-        ImprovedGsequence(n = 0, cache);
+        ImprovedGsequence(0);
     };
 
     BENCHMARK( "Test Two" ) {
-        ImprovedGsequence(n = 1, cache);
+        ImprovedGsequence(1);
     };
 
     BENCHMARK( "Test Three" ) {
-        ImprovedGsequence(n = 2, cache);
+        ImprovedGsequence(2);
     };
 
     BENCHMARK( "Test Four" ) {
-        ImprovedGsequence(n = 10, cache);
+        ImprovedGsequence(3);
+    };
+
+    BENCHMARK( "Test Five" ) {
+        ImprovedGsequence(4);
+    };
+
+    BENCHMARK( "Test Six" ) {
+        ImprovedGsequence(5);
+    };
+
+    BENCHMARK( "Test Seven" ) {
+        ImprovedGsequence(6);
+    };
+
+    BENCHMARK( "Test Eight" ) {
+        ImprovedGsequence(7);
+    };
+
+    BENCHMARK( "Test Nine" ) {
+        ImprovedGsequence(8);
+    };
+
+    BENCHMARK( "Test Ten" ) {
+        ImprovedGsequence(9);
     };
 }

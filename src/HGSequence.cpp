@@ -4,31 +4,29 @@
 
 #include "HGSequence.h"
 
-int Gsequence(int n) {
-    if (n == 0) {
-        return 0;
-    }
+std::map<int, int> memorizedValues;
 
-    if (n == 1) {
-        return 1;
+int Gsequence(int n) {
+    if (n <= 1) {
+        return n;
     }
 
     return n - Gsequence(Gsequence(n - 1));
 }
 
-int ImprovedGsequence(int n, std::vector<int>& cache) {
-    if (n == 0) {
-        return 0;
+int ImprovedGsequence(int n) {
+    if (n <= 1) {
+        return n;
     }
 
-    if (n == 1) {
-        return 1;
+    auto it = memorizedValues.find(n);
+    if (it != memorizedValues.end()) {
+        return it->second;
     }
 
-    if (cache[n] != -1) {
-        return cache[n];
-    }
+    int temp = ImprovedGsequence(n - 1);
+    int result = n - ImprovedGsequence(temp);
+    memorizedValues[n] = result;
 
-    int temp = ImprovedGsequence(n - 1, cache);
-    return cache[n] = n - ImprovedGsequence(temp, cache);
+    return result;
 }
