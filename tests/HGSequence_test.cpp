@@ -25,21 +25,22 @@ TEST_CASE( "Naive Recursion Method" ) {
         Gsequence(10);
     };
 }
-
+int n;
+std::vector<int> cache(n + 1, -1);
 TEST_CASE( "Improved Recursion Method" ) {
     BENCHMARK( "Test One" ) {
-        ImprovedGsequence(0);
+        ImprovedGsequence(n = 0, cache);
     };
 
     BENCHMARK( "Test Two" ) {
-        ImprovedGsequence(1);
+        ImprovedGsequence(n = 1, cache);
     };
 
     BENCHMARK( "Test Three" ) {
-        ImprovedGsequence(2);
+        ImprovedGsequence(n = 2, cache);
     };
 
     BENCHMARK( "Test Four" ) {
-        ImprovedGsequence(10);
+        ImprovedGsequence(n = 10, cache);
     };
 }

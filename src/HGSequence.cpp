@@ -16,7 +16,7 @@ int Gsequence(int n) {
     return n - Gsequence(Gsequence(n - 1));
 }
 
-int ImprovedGsequence(int n) {
+int ImprovedGsequence(int n, std::vector<int>& cache) {
     if (n == 0) {
         return 0;
     }
@@ -25,6 +25,10 @@ int ImprovedGsequence(int n) {
         return 1;
     }
 
-    int temp = Gsequence(Gsequence(n - 1));
-    return n - temp;
+    if (cache[n] != -1) {
+        return cache[n];
+    }
+
+    int temp = ImprovedGsequence(n - 1, cache);
+    return cache[n] = n - ImprovedGsequence(temp, cache);
 }
